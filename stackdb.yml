@@ -1,0 +1,13 @@
+service:
+ # nonbre del servicio
+ db:
+ container_name: postgres # Nombre del contenedor
+ image: postgres #Imagen a descargar
+ restart: always
+ports: 
+  - 5432:5432 #Puerto externo (docker) : puerto interno
+environment: 
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: qwerty
+  POSTGRES_DB: postgres
+  

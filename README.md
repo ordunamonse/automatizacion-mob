@@ -97,3 +97,5 @@ ssh-keygen -t ed25519 -C "ordunamonse28@gmail.com"
 #
 cat  C:\Users\ordun\.ssh\id_ed25519.pub
 
+docker compose -f stackdb.yml pull
+docker compose -f stackdb.yml up -d
