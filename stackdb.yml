@@ -11,3 +11,12 @@ environment:
   POSTGRES_PASSWORD: qwerty
   POSTGRES_DB: postgres
   
+# Crear el servicio "adminer" para crear el contenedor
+adminer:
+ container_name: adminer
+ image: adminer:latest
+ restart: always
+ depends_on: # Depende de que se inicie el servicio DB
+   -db
+  ports:
+   -9090:8080
