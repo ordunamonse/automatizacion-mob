@@ -26,5 +26,8 @@ RUN chown -R admin: devopsc /tmp
 # Cambiar al usuario admin
 USER admin
 
+# eXPONER EL PUERTO 8080 (backend)
+EXPOSE 8080 
+
 # Ejecutar el JAR para iniciar el contenedor
 ENTRYPOINT [ "java", "-jar", "/tmp/app.jar" ]
