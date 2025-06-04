@@ -30,4 +30,4 @@ USER admin
 EXPOSE 8080 
 
 # Ejecutar el JAR para iniciar el contenedor
-ENTRYPOINT [ "java", "-jar", "/tmp/app.jar" ]
+ENTRYPOINT ["java", "-jar", "/tmp/app.jar"]
