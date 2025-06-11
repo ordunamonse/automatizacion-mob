@@ -393,11 +393,13 @@ Proyecto"
 ssh-keygen -t ed25519 -C "ordunamonse28@gmail.com"
 ```
 
-# Comando para lleves
-
+## Muestra el contenido de tu clave pública SSH.
 cat  C:\Users\ordun\.ssh\id_ed25519.pub
 
+## Descarga las últimas versiones de las imágenes Docker 
 docker compose -f stackdb.yml pull
+
+## Inicia todos los contenedores definidos en stackdb.yml
 docker compose -f stackdb.yml up -d
 
 # Conclusión
