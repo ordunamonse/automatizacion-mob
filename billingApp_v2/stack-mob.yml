@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - "9090:80"
+    environment:
+      PMA_ARBITRARY: 1
+    depends_on:
+      - mysql-db
+    networks:
+      - app-network
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbfiles:/var/lib/mysql
+      - ./dbfiles/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
+    environment:
+      MYSQL_ROOT_PASSWORD: qwerty
+      MYSQL_DATABASE: sistema_ventas_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    networks:
+      - app-network
+
+  sistema-ventas-back:
+    build:
+      context: ./java
+      dockerfile: Dockerfile
+    container_name: sistema-ventas-back
+    environment:
+      - JAVA_OPTS=-Xms256M -Xmx256M
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbfiles:
