@@ -3,7 +3,7 @@
 services:
   phpmyadmin:
     container_name: phpmyadmin
-    image: phpmyadmin
+    image: phpmyadmin:latest
     restart: always
     ports:
       - "9090:80"
