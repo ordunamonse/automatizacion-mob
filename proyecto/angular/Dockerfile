@@ -10,6 +10,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY mime.types /etc/nginx/mime.types
 
+COPY ./sistema-ventas-front /usr/share/nginx/html
+
 
 # Instalamos OpenJDK 17
 RUN apk --no-cache add openjdk17-jre
@@ -35,6 +37,7 @@ EXPOSE 80 7080
 
 ENTRYPOINT ["sh", "/appshell.sh"]
 
-
+#Ejecutar el comando: CMD[“nginx”, “-g”, “daemon off;”]
+CMD [ “nginx”, “-g”, “daemon off;” ]
 
 
